@@ -13,6 +13,68 @@
         Job Application
         <span>(Web)</span>
       </h1>
-    </div>
+
+      <!-- Row 1 -->
+      <div class="row row-1">
+        <div class="col col-1">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" />
+        </div>
+        <div class="col col-2">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" />
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="row row-2">
+        <div class="col col-1">
+          <label for="email">Email</label>
+          <input type="text" id="email" />
+        </div>
+        <div class="col col-2">
+          <label for="job-role">Job Role</label>
+          <select name="job-role" id="job-role">
+            <option value="web-developer">Web Developer</option>
+            <option value="web-designer">Web Designer</option>
+            <option value="graphic-designer">Graphic Designer</option>
+            <option value="content-writer">Content Writer</option>
+          </select>
+        </div>
+      </div>
+      <!-- Row 3 spanning two columns-->
+      <div class="col">
+        <label for="address">Address</label>
+        <textarea name="address" id="address"></textarea>
+      </div>
+
+      <!-- Row 4 -->
+      <div class="row row-4">
+        <div class="col col-1">
+          <label for="city">City</label>
+          <input type="text" id="city" />
+        </div>
+        <div class="col col-2">
+          <label for="pincode">Pincode</label>
+          <input type="text" id="pincode" />
+        </div>
+      </div>
+
+      <!-- Row 5 -->
+      <div class="row row-4">
+        <div class="col col-1">
+          <label for="start-date">Start-Date</label>
+          <input type="date" id="start-date" />
+        </div>
+        <div class="col col-2">
+          <label for="upload-cv">Upload CV</label>
+          <input type="file" id="upload-cv" />
+        </div>
+      </div>
+
+
+      <div class="btn-container">
+        <button class="apply">Apply Now</button>
+      </div>
   </body>
 </html>

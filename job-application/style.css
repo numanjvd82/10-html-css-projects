@@ -5,7 +5,9 @@
   --heading-color: #04175a;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -19,18 +21,84 @@ body {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
   background-color: var(--container-bg);
   border-radius: var(--container-radius);
+  padding: 1.5rem;
 }
 
 .heading-container {
-  padding: 20px;
   font-size: 2.5rem;
 }
 
 .heading-container span {
   color: var(--heading-color);
   font-size: 1.8rem;
+}
+
+.row {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col {
+  width: 100%;
+  margin: 0 0.5rem;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+input,
+select,
+textarea {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  outline: none;
+  border-radius: 4px;
+  display: block;
+  resize: none;
+  width: 100%;
+}
+
+input[type='file'] {
+  border: 1px solid #000;
+  font-size: 1.2rem;
+}
+
+input:focus {
+  border: 2px solid #000;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.apply {
+  background-color: #000;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+}
+
+.apply:hover {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
 }
