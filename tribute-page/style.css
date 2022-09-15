@@ -72,3 +72,33 @@ body {
   margin: 1rem 0;
   text-align: right;
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 850px) {
+  .container {
+    padding: 30px 20px;
+  }
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-info {
+    margin: 1rem 0;
+  }
+  .hero-dob {
+    text-align: left;
+  }
+  .hero-title {
+    font-size: 48px;
+  }
+  .hero-bio {
+    font-size: 1rem;
+  }
+  .biography {
+    margin: 1rem 0;
+  }
+  .biography-list {
+    padding: 0 0.5rem;
+  }
+}
