@@ -1,0 +1,74 @@
+:root {
+  --bordercolor: #1d1e4c;
+  --bgcolor: #e5e5fd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Inter';
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 50px;
+  border: 16px solid var(--bordercolor);
+  background-color: var(--bgcolor);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-img {
+  /* width: 150px; */
+  object-fit: contain;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 170px;
+}
+
+.heading-hero {
+  font-weight: 500;
+  font-size: 48px;
+}
+
+.hero-dob {
+  text-align: right;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.hero-title {
+  font-weight: 500;
+  font-size: 72px;
+  margin: 1.5rem 0;
+}
+
+.hero-bio {
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  letter-spacing: 0.06em;
+}
+
+.biography {
+  margin: 2rem 0;
+  font-weight: 700;
+}
+
+.biography-list {
+  padding: 0 1rem;
+}
+
+.read-more {
+  margin: 1rem 0;
+  text-align: right;
+}
