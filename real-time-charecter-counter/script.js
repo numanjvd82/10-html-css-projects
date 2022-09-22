@@ -1,6 +1,7 @@
 const text = document.querySelector('#text');
 const totalChars = document.querySelector('#total-chars');
 const remainingChars = document.querySelector('#remaining');
+const countSpaces = document.querySelector('#check');
 
 const limit = 100;
 
@@ -9,8 +10,16 @@ totalChars.textContent = 0;
 remainingChars.textContent = limit;
 
 text.addEventListener('input', (e) => {
-  const total = e.target.value.length;
-  const remaining = limit - total;
+  let total = e.target.value.length;
+  let remaining = limit - total;
+
+  if (!countSpaces.checked) {
+    let newStr = e.target.value;
+    let removeSpaces = newStr.replace(/ /g, '');
+    total = removeSpaces.length;
+    remaining = limit - total;
+  }
+
   totalChars.textContent = total;
   remainingChars.textContent = remaining;
 
