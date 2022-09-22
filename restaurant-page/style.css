@@ -55,17 +55,18 @@ img {
   align-items: flex-end;
 }
 
-.logo img {
+.logo-img {
   margin-right: 0.5rem;
 }
 
-.logo span {
+.logo-text {
   color: var(--btn-color);
   font-size: 3rem;
   font-weight: 600;
 }
 
 .menu-icon {
+  cursor: pointer;
   align-self: flex-end;
 }
 
@@ -202,4 +203,73 @@ img {
 
 .tall {
   grid-row: span 2;
+}
+
+/* Footer */
+
+.footer {
+  background-color: var(--btn-secondary-color);
+  margin: 1rem 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  padding: 1rem 4rem;
+  place-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    display: block;
+    padding: 1rem 2rem;
+  }
+}
+
+.footer li {
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--btn-text-color);
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--btn-color);
+}
+
+.col-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer input {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+}
+
+.social {
+  margin-right: 1rem;
 }
