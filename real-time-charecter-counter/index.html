@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real Time Charecter Counter</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Real-Time Charecter Counter</h1>
+      <textarea
+        cols="50"
+        rows="10"
+        id="text"
+        placeholder="Enter text here..."
+        name="charecters"
+      ></textarea>
+      <div class="info">
+        <p class="total">
+          Total Characters: <span class="total-char" id="total-chars">100</span>
+        </p>
+        <p class="remaining-chars">
+          Remaining:
+          <span class="remaining" id="remaining">0</span>
+        </p>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
