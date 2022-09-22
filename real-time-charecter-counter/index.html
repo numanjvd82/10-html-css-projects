@@ -17,14 +17,21 @@
         placeholder="Enter text here..."
         name="charecters"
       ></textarea>
-      <div class="info">
-        <p class="total">
-          Total Characters: <span class="total-char" id="total-chars">100</span>
-        </p>
-        <p class="remaining-chars">
-          Remaining:
-          <span class="remaining" id="remaining">0</span>
-        </p>
+      <div class="info-container">
+        <div class="check-space">
+          <label for="check">Include Spaces</label>
+          <input class="checkbox" name="check" type="checkbox" id="check" />
+        </div>
+        <div class="info">
+          <p class="total">
+            Total Characters:
+            <span class="total-char" id="total-chars">100</span>
+          </p>
+          <p class="remaining-chars">
+            Remaining:
+            <span class="remaining" id="remaining">0</span>
+          </p>
+        </div>
       </div>
     </div>
 
