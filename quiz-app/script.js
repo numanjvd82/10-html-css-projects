@@ -44,11 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
   questionTitle.textContent = questions[questionIndex].question;
 });
 
-// Finding the correct question from the questions array
-// const correctQuestion = questions.find(
-//   (question, index) => index === questionIndex
-// );
-
 // Setting the options
 optionContainer.innerHTML = questions[questionIndex].options.map((option) => {
   return `<div class="option">
