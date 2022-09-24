@@ -14,6 +14,10 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
 }
 
 a {
@@ -27,4 +31,139 @@ li {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.container {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.tag {
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #333;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0.5rem 0.5rem 0 0;
+  position: absolute;
+  top: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  background: url(./search.svg) no-repeat 10px center;
+  background-size: 2rem;
+  margin-top: 1rem;
+  width: 400px;
+  padding: 0.7rem 0.5rem;
+  padding-left: 3rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  outline: none;
+  transition: width 0.3s ease, border-color 0.3s ease;
+}
+
+.search-input:hover {
+  border-width: 2px;
+  border-color: #999;
+}
+
+.search-input:focus {
+  width: calc(100% - 2rem);
+  border-width: 2px;
+  border-color: #333;
+}
+
+.recipes {
+  padding: 1rem;
+  position: relative;
+}
+
+.recipe {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.recipe__image {
+  min-width: 350px;
+  width: 100%;
+  max-width: 600px;
+  object-fit: cover;
+}
+
+.recipe__name {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0;
+  color: black;
+  background: white;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.next {
+  background: url(./next.png) no-repeat center;
+  background-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+}
+
+.pagination__item {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination__item--active {
+  background: #333;
+  color: #fff;
+}
+
+.pagination__item--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination__item:hover {
+  background: #333;
+  color: #fff;
+}
+
+@media screen and (max-width: 460px) {
+  .tag {
+    font-size: 1rem;
+  }
+
+  .search-input {
+    width: calc(100% - 2rem);
+  }
+
+  .recipe__image {
+    min-width: 100%;
+  }
 }
