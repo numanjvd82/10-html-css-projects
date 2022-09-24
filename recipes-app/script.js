@@ -64,3 +64,55 @@ const meals = [
 
 // Lookup a single random meal
 // www.themealdb.com/api/json/v1/1/random.php
+
+const recipeContainer = document.querySelector('#recipes');
+const searchValue = document.querySelector('#recipes');
+const recipeModal = document.querySelector('#recipeModal');
+const openModalEl = document.querySelector('#open-modal');
+const closeModal = document.querySelector('#close-modal');
+
+// Open Modal When clicked on recipe
+openModalEl.addEventListener('click', (e) => {
+  if (recipeModal.classList.contains('active-modal')) {
+    recipeModal.classList.remove('active-modal');
+  }
+
+  if (e.target == recipeModal) {
+    recipeModal.classList.remove('active-modal');
+  }
+  recipeModal.classList.add('active-modal');
+});
+
+// Close Modal when clicked on button
+closeModal.addEventListener('click', (e) => {
+  recipeModal.classList.remove('active-modal');
+});
+
+// Close modal if clicked outside the modal
+window.addEventListener('click', (e) => {
+  if (e.target === recipeModal) {
+    recipeModal.classList.remove('active-modal');
+  }
+});
+
+const randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php';
+const searchMealUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+
+const addMealToDOM = (meal) => {};
+
+const getRandomMeal = async () => {
+  let controller = new AbortController();
+  let signal = controller.signal;
+
+  try {
+    const response = await fetch(randomMealUrl, { signal });
+    const data = await response.json();
+    const meal = data.meals[0];
+    console.log(meal);
+    addMealToDOM(meal);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+// getRandomMeal();
