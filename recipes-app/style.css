@@ -129,19 +129,6 @@ img {
 
 .recipes {
   padding: 1rem;
-  position: relative;
-}
-
-.tag {
-  padding: 0.5rem 1rem;
-  background: #fff;
-  color: #333;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin: 0.5rem 0.5rem 0 0;
-  position: absolute;
-  top: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
 }
 
 .recipe {
@@ -151,12 +138,25 @@ img {
   overflow: hidden;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
+  position: relative;
+}
+
+.tag {
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .recipe__image {
   min-width: 350px;
   width: 100%;
   max-width: 600px;
+  text-align: center;
   object-fit: cover;
   cursor: pointer;
 }
@@ -176,6 +176,7 @@ img {
 
 .single-recipe-img {
   max-width: 1000px;
+  text-align: center;
 }
 
 .recipe__instructions {
