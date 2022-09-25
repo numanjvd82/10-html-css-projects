@@ -64,13 +64,15 @@ const recipeModal = document.querySelector('#recipeModal');
 // const openModalEl = document.querySelector('#open-modal');
 const closeModal = document.querySelector('#close-modal');
 const recipeDetailContainer = document.querySelector('#recipe-detail');
+const form = document.querySelector('.search');
+const searchInput = document.querySelector('#search-input');
 
 const randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php';
 const searchMealUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 
 const getRandomMeal = async () => {
   let controller = new AbortController();
-  let signal = controller.signal;
+  let { signal } = controller;
 
   try {
     const response = await fetch(randomMealUrl, { signal });
@@ -81,6 +83,44 @@ const getRandomMeal = async () => {
   } catch (e) {
     console.error(e);
   }
+};
+
+const getSearchMeal = async (searchTerm) => {
+  let controller = new AbortController();
+  let { signal } = controller;
+
+  try {
+    const response = await fetch(`${searchMealUrl}${searchTerm}`, { signal });
+    const data = await response.json();
+    const meals = data.meals;
+    addSearchedMealsToDOM(meals);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const addSearchedMealsToDOM = (meals) => {
+  recipeContainer.innerHTML = meals
+    .map((meal) => {
+      return `
+    <div data-id=${meal.idMeal} class="recipe">
+    <div class="tag">${meal.strMeal}</div>
+    <div id="open-modal" class="recipe__image">
+      <img class='recipe__image-img' src=${meal.strMealThumb} alt=${meal.strMeal} />
+    </div>
+    <div class="recipe__name">${meal.strMeal}</div>
+  </div>
+    `;
+    })
+    .join(' ');
+
+  // populate the modal with the meal details
+  recipeContainer.addEventListener('click', (e) => {
+    console.log(e.target.parentElement.parentElement);
+    const mealId = e.target.parentElement.parentElement.dataset.id;
+    const meal = meals.find((meal) => meal.idMeal === mealId);
+    addMealDetailToDOM(meal);
+  });
 };
 
 const addMealDetailToDOM = (meal) => {
@@ -143,6 +183,12 @@ window.addEventListener('click', (e) => {
   if (e.target === recipeModal) {
     recipeModal.classList.remove('active-modal');
   }
+});
+
+// Run Listener when form is submitted
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  getSearchMeal(searchInput.value);
 });
 
 // End Event listeners
