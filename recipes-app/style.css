@@ -38,6 +38,7 @@ img {
   padding: 1rem;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 1000px;
 }
 
 /* The Modal (background) */
@@ -153,9 +154,6 @@ img {
 }
 
 .recipe__image {
-  min-width: 350px;
-  width: 100%;
-  max-width: 600px;
   text-align: center;
   object-fit: cover;
   cursor: pointer;
@@ -194,45 +192,6 @@ img {
   margin-bottom: 0.5rem;
   font-weight: bold;
   list-style: disc;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem 0;
-}
-
-.next {
-  background: url(./next.png) no-repeat center;
-  background-size: 2rem;
-  width: 2rem;
-  height: 2rem;
-  border: none;
-}
-
-.pagination__item {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 0 0.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.pagination__item--active {
-  background: #333;
-  color: #fff;
-}
-
-.pagination__item--disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.pagination__item:hover {
-  background: #333;
-  color: #fff;
 }
 
 @media screen and (max-width: 460px) {
