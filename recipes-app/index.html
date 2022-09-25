@@ -12,33 +12,8 @@
       <!-- Modal content -->
       <div class="modal-content">
         <p id="close-modal" class="close">&times;</p>
-        <div class="recipe single-recipe">
-          <div class="recipe__image single-recipe-img">
-            <img src="2.jpg" alt="Random Recipe" />
-          </div>
-          <div class="recipe__name">Pizza Roll</div>
-          <p class="recipe__instructions">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-            voluptatum, quae, quod, voluptas quibusdam voluptates quidem
-            voluptatibus quos quia quas nesciunt. Quisquam, quae. Quisquam
-            voluptas, quae quibusdam quod quia. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Quis voluptatum, quae, quod, voluptas
-            quibusdam voluptates quidem voluptatibus quos quia quas nesciunt.
-            Quisquam, quae. Quisquam voluptas, quae quibusdam quod quia.
-          </p>
-          <ul class="recipe_ingredients">
-            <li class="recipe_ingredient">Lorem ipsum dolor sit amet.</li>
-            <li class="recipe_ingredient">Lorem ipsum dolor sit amet.</li>
-            <li class="recipe_ingredient">Lorem ipsum dolor sit amet.</li>
-            <li class="recipe_ingredient">Lorem ipsum dolor sit amet.</li>
-            <li class="recipe_ingredient">Lorem ipsum dolor sit amet.</li>
-            <li class="recipe_ingredient">Lorem ipsum dolor sit amet.</li>
-            <li class="recipe_ingredient">Lorem ipsum dolor sit amet.</li>
-            <li class="recipe_ingredient">Lorem ipsum dolor sit amet.</li>
-            <li class="recipe_ingredient">Lorem ipsum dolor sit amet.</li>
-            <li class="recipe_ingredient">Lorem ipsum dolor sit amet.</li>
-          </ul>
-        </div>
+        <!-- Will be populated dynamically with recipe detail in Modal -->
+        <div id="recipe-detail" class="recipe single-recipe"></div>
       </div>
     </div>
     <div class="container">
@@ -52,13 +27,7 @@
         />
       </div>
       <div id="recipes" class="recipes">
-        <div class="recipe">
-          <div class="tag">Random Recipe</div>
-          <div id="open-modal" class="recipe__image">
-            <img src="2.jpg" alt="Random Recipe" />
-          </div>
-          <div class="recipe__name">Pizza Roll</div>
-        </div>
+        <!-- Will be populated dynamically with the random recipe from JS -->
       </div>
 
       <div class="pagination">

@@ -59,28 +59,78 @@ const meals = [
   },
 ];
 
-// Search meal by name
-// www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
-
-// Lookup a single random meal
-// www.themealdb.com/api/json/v1/1/random.php
-
 const recipeContainer = document.querySelector('#recipes');
-const searchValue = document.querySelector('#recipes');
 const recipeModal = document.querySelector('#recipeModal');
-const openModalEl = document.querySelector('#open-modal');
+// const openModalEl = document.querySelector('#open-modal');
 const closeModal = document.querySelector('#close-modal');
+const recipeDetailContainer = document.querySelector('#recipe-detail');
+
+const randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php';
+const searchMealUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+
+const getRandomMeal = async () => {
+  let controller = new AbortController();
+  let signal = controller.signal;
+
+  try {
+    const response = await fetch(randomMealUrl, { signal });
+    const data = await response.json();
+    const singleMeal = data.meals[0];
+    addMealToDOM(singleMeal);
+    addMealDetailToDOM(singleMeal);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+const addMealDetailToDOM = (meal) => {
+  let ingredients = [];
+
+  for (let i = 1; i <= 20; i++) {
+    if ((meal[`strIngredient${i}`] && meal[`strMeasure${i}`]) === '') {
+      break;
+    }
+    ingredients.push(
+      `${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`
+    );
+  }
+
+  recipeDetailContainer.innerHTML = `
+    <div class="recipe__image single-recipe-img">
+      <img src=${meal.strMealThumb} alt=${meal.strMeal} />
+    </div>
+    <div class="recipe__name">${meal.strMeal}</div>
+    <p class="recipe__instructions">
+      ${meal.strInstructions}
+    </p>
+    <ul class="recipe_ingredients">
+      ${ingredients
+        .map((ingredient) => `<li class="recipe_ingredient">${ingredient}</li>`)
+        .join('')}
+    </ul>
+  `;
+};
+
+const addMealToDOM = (meal) => {
+  recipeContainer.innerHTML = `
+  <div class="recipe">
+    <div class="tag">Random Recipe</div>
+    <div id="open-modal" class="recipe__image">
+      <img class='recipe__image-img' src=${meal.strMealThumb} alt=${meal.strMeal} />
+    </div>
+    <div class="recipe__name">${meal.strMeal}</div>
+  </div>`;
+};
+
+getRandomMeal();
+
+// Event listeners
 
 // Open Modal When clicked on recipe
-openModalEl.addEventListener('click', (e) => {
-  if (recipeModal.classList.contains('active-modal')) {
-    recipeModal.classList.remove('active-modal');
+recipeContainer.addEventListener('click', (e) => {
+  if (e.target.classList.contains('recipe__image-img')) {
+    recipeModal.classList.add('active-modal');
   }
-
-  if (e.target == recipeModal) {
-    recipeModal.classList.remove('active-modal');
-  }
-  recipeModal.classList.add('active-modal');
 });
 
 // Close Modal when clicked on button
@@ -95,24 +145,4 @@ window.addEventListener('click', (e) => {
   }
 });
 
-const randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php';
-const searchMealUrl = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
-
-const addMealToDOM = (meal) => {};
-
-const getRandomMeal = async () => {
-  let controller = new AbortController();
-  let signal = controller.signal;
-
-  try {
-    const response = await fetch(randomMealUrl, { signal });
-    const data = await response.json();
-    const meal = data.meals[0];
-    console.log(meal);
-    addMealToDOM(meal);
-  } catch (e) {
-    console.error(e);
-  }
-};
-
-// getRandomMeal();
+// End Event listeners
